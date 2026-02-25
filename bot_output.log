@@ -1,0 +1,37 @@
+[11/05/25 04:01:58] INFO     {"caller": "trading_bot.py:505",  trading_bot.py:86
+                             "timestamp":
+                             "2025-11-05T04:01:58.365431+00:00
+                             ", "message": "Initializing
+                             TradingBot instance"}
+                    DEBUG    {"caller": "trading_bot.py:505",  trading_bot.py:86
+                             "timestamp":
+                             "2025-11-05T04:01:58.372379+00:00
+                             ", "message": "Configuration
+                             loaded", "config":
+                             {"min_coin_price": 0.001,
+                             "max_coin_price": 0.01,
+                             "position_size_usd": 10,
+                             "max_position_size_usd": 20,
+                             "leverage": 1,
+                             "profit_target_pct": 0.5,
+                             "stop_loss_pct": 0.25,
+                             "max_positions_per_symbol": 5,
+                             "position_spread_pct": 0.0001,
+                             "offset": 1e-05, "loop_delay":
+                             0.05, "monitor_interval": 5,
+                             "max_retries": 5, "retry_delay":
+                             0.5, "min_size": 0.001,
+                             "max_size": 0.1,
+                             "price_precision": 6,
+                             "amount_precision": 8,
+                             "initial_size_10c": 2.0,
+                             "initial_size_1c": 1.0,
+                             "profit_target_10c": 0.05,
+                             "profit_target_1c": 0.005,
+                             "pps_stuck_threshold": -5.0}}
+                    INFO     {"caller": "trading_bot.py:305",  trading_bot.py:86
+                             "timestamp":
+                             "2025-11-05T04:01:58.377141+00:00
+                             ", "message": "Initializing
+                             exchange connection"}
+Initializing exchange: hyperliquid

@@ -1,0 +1,3 @@
+ccxt
+rich
+python-dotenv
