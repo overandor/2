@@ -60,6 +60,7 @@ contract CartmanBridge {
     uint256 public minProfitBps = 300;  // ** NEW: 3% guaranteed minimum profit floor (300) **
 
     mapping(bytes32 => uint256) public lockedFees;
+    mapping(address => uint256) private gasPaymentNonces;
     mapping(bytes32 => uint256) public gasArbReserve; // ** NEW: Holds the gas overpayment delta **
 
     // Events
@@ -152,7 +153,8 @@ contract CartmanBridge {
     function payInterchainGas(uint16 destinationChain, uint256 gasLimit) public payable returns (bytes32 messageId) {
         if (msg.value == 0) revert ZeroGasPayment();
 
-        messageId = keccak256(abi.encode(msg.sender, block.timestamp, destinationChain));
+        uint256 nonce = ++gasPaymentNonces[msg.sender];
+        messageId = keccak256(abi.encode(msg.sender, destinationChain, gasLimit, block.timestamp, nonce));
         lockedFees[messageId] = msg.value;
 
         gasService.payNativeGasForContractCall{value: msg.value}(
